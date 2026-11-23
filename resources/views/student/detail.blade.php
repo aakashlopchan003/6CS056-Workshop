@@ -12,8 +12,8 @@
 <p><strong>Phone:</strong> {{ $student->phone }}</p>
 <p><strong>Address:</strong> {{ $student->address }}</p>
 <p><strong>Date of Birth:</strong> {{ $student->date_of_birth }}</p>
-<a href="/students/{{ $student->id }}/edit">Edit Student</a>
+<a href="{{ url('/') }}/students/{{ $student->id }}/edit">Edit Student</a>
 <br>
-<a href="/students">Back to Students</a>
+<a href="{{ url('/') }}/students">Back to Students</a>
 </body>
 </html>

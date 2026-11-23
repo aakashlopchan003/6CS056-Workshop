@@ -13,8 +13,8 @@
 <p><strong>Fee:</strong> {{ $course->fee }}</p>
 <p><strong>Difficulty:</strong> {{ $course->difficulty }}</p>
 <p><strong>Active:</strong> {{ $course->is_active ? 'Yes' : 'No' }}</p>
-<a href="/courses/{{ $course->id }}/edit">Edit Course</a>
+<a href="{{ url('/') }}/courses/{{ $course->id }}/edit">Edit Course</a>
 <br>
-<a href="/courses">Back to Courses</a>
+<a href="{{ url('/') }}/courses">Back to Courses</a>
 </body>
 </html>

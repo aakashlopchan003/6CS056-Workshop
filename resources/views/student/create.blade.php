@@ -13,12 +13,12 @@
     </ul>
 </div>
 @endif
-<form action="/students" method="POST">
+<form action="{{ url('/') }}/students" method="POST">
     @csrf
     @include('student._form')
     <button type="submit">Create Student</button>
 </form>
 <br>
-<a href="/students">Back to Students</a>
+<a href="{{ url('/') }}/students">Back to Students</a>
 </body>
 </html>
