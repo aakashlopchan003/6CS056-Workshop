@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head><title>Create Student</title></head>
-<body>
-<h1>Create Student</h1>
-@if($errors->any())
-<div>
-    <h3>Please fix the following errors:</h3>
-    <ul>
-        @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-<form action="{{ url('/') }}/students" method="POST">
-    @csrf
-    @include('student._form')
-    <button type="submit">Create Student</button>
-</form>
-<br>
-<a href="{{ url('/') }}/students">Back to Students</a>
-</body>
-</html>
+<x-layouts.app title="Create Student">
+    <h1>Create Student</h1>
+
+    <form action="{{ route('students.store') }}" method="POST">
+        @csrf
+
+        <x-students.form :student="new \App\Models\Student()" />
+
+        <button type="submit" class="btn">Create Student</button>
+        <a href="{{ route('students.index') }}">Cancel</a>
+    </form>
+</x-layouts.app>

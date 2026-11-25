@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head><title>Edit Course</title></head>
-<body>
-<h1>Edit Course</h1>
-@if($errors->any())
-<div>
-    <h3>Please fix the following errors:</h3>
-    <ul>
-        @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-<form action="{{ url('/') }}/courses/{{ $course->id }}" method="POST">
-    @csrf
-    @method('PUT')
-    @include('course._form')
-    <button type="submit">Update Course</button>
-</form>
-<br>
-<a href="{{ url('/') }}/courses">Back to Courses</a>
-</body>
-</html>
+<x-layouts.app title="Edit Course">
+    <h1>Edit Course</h1>
+
+    <form action="{{ route('courses.update', $course) }}" method="POST">
+        @csrf
+        @method('PUT')
+
+        <x-courses.form :course="$course" />
+
+        <button type="submit" class="btn">Update Course</button>
+        <a href="{{ route('courses.show', $course) }}">Cancel</a>
+    </form>
+</x-layouts.app>
